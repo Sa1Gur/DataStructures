@@ -41,7 +41,7 @@ namespace DataStructures
             {
                 if (int.MaxValue / 2 < _capacity) throw new IndexOutOfRangeException($"capacity cannot exceed {int.MaxValue}");
                 _capacity *= 2;
-                Array.Resize(ref _items, _capacity);                
+                Array.Resize(ref _items, _capacity);
             }
         }
 
@@ -60,7 +60,7 @@ namespace DataStructures
 
             var item = _items[0];
             _size--;
-            _items[0] = _items[_size];            
+            _items[0] = _items[_size];
             HeapifyDown();
             return item;
         }
@@ -88,12 +88,12 @@ namespace DataStructures
             int index = 0;
             while (HasLeftChild(index))
             {
-                int smallerChildIndex = SmallerChildIndex(index);
+                int closerChildIndex = CloserChildIndex(index);
 
-                if (!_comparer(_items[smallerChildIndex], _items[index]))
+                if (!_comparer(_items[closerChildIndex], _items[index]))
                 {
-                    Swap(index, smallerChildIndex);
-                    index = smallerChildIndex;
+                    Swap(index, closerChildIndex);
+                    index = closerChildIndex;
                 }
                 else
                 {
@@ -102,15 +102,15 @@ namespace DataStructures
             }
         }
 
-        private int SmallerChildIndex(int index)
+        int CloserChildIndex(int index)
         {
-            int smallerChildIndex = GetLeftChildIndex(index);
-            if (HasRightChild(index) && _comparer(RightChild(index), LeftChild(index)))
+            int closerChildIndex = GetLeftChildIndex(index);
+            if (HasRightChild(index) && _comparer(LeftChild(index), RightChild(index)))
             {
-                smallerChildIndex = GetRightChildIndex(index);
+                closerChildIndex = GetRightChildIndex(index);
             }
 
-            return smallerChildIndex;
+            return closerChildIndex;
         }
     }
 }

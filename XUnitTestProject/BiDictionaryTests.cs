@@ -2,6 +2,10 @@
 using DataStructures;
 using Xunit;
 
+//https://stackoverflow.com/questions/255341/getting-multiple-keys-of-specified-value-of-a-generic-dictionary
+//https://stackoverflow.com/questions/268321/bidirectional-1-to-1-dictionary-in-c-sharp
+//https://stackoverflow.com/questions/10966331/two-way-bidirectional-dictionary-in-c
+
 namespace XUnitTestProject
 {
     public class BiDictionaryTests

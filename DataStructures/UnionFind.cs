@@ -17,7 +17,7 @@ public class UnionFind
     }
 
     public int Find(int x) => 
-    (x == root[x]) ? x : root[x] = find(root[x]);
+    (x == root[x]) ? x : root[x] = Find(root[x]);
 
     public void Union(int x, int y)
     {

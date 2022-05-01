@@ -28,12 +28,7 @@ namespace DataStructures
         T RightChild(int index) => _items[GetRightChildIndex(index)];
         T Parent(int index) => _items[GetParentIndex(index)];
 
-        void Swap(int indexOne, int indexTwo)
-        {
-            T temp = _items[indexOne];
-            _items[indexOne] = _items[indexTwo];
-            _items[indexTwo] = temp;
-        }
+        void Swap(int indexOne, int indexTwo) => (_items[indexOne], _items[indexTwo]) = (_items[indexTwo], _items[indexOne]);
 
         void EnsureExtraCapacity()
         {

@@ -41,7 +41,7 @@ public class Heap<T>
 
     public bool Any() => _size != 0;
 
-    public T Peek() => !Any() ? throw new NotSupportedException($"heap is empty") : _items[0];
+    public T Peek() => Any() ? _items[0] : throw new NotSupportedException($"heap is empty");
 
     public T Pop()
     {

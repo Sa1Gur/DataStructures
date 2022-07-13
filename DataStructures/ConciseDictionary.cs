@@ -5,7 +5,7 @@ public class ConciseDictionary<T, U> : Dictionary<T, U>
 
     public ConciseDictionary(U missing) => _missing = missing;
 
-    public U this[T i]
+    public new U this[T i]
     {
         get => this.ContainsKey(i) ? ((Dictionary<T, U>)this)[i] : _missing;
         set

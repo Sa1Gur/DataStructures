@@ -22,15 +22,15 @@ public class UnionFind
 
         if (rootX == rootY) return;
         
-        if (rank[rootX] >= rank[rootY])
+        if (_rank[rootX] >= _rank[rootY])
         {
-            root[rootY] = rootX;
-            rank[rootX] += rank[rootY];
+            _root[rootY] = _rootX;
+            _rank[rootX] += _rank[rootY];
         }
         else
         {
-            root[rootX] = rootY;
-            rank[rootY] += rank[rootX];
+            _root[rootX] = _rootY;
+            _rank[rootY] += _rank[rootX];
         }
     }
 }

@@ -1,11 +1,15 @@
 public class DisjointSetUnion
 {
-    private DisjointSetUnion? parent = null;
+    private DisjointSetUnion? _parent = null;
 
     public DisjointSetUnion? Parent
     {
-        get => (parent is null) ? this : parent.Parent;
-        set => parent = value;
+        get => (_parent is null) ? this : _parent.Parent;
+        set
+        {
+            if (_parent is null) _parent = value;
+            else _parent.Parent = value;
+        }
     }
 
     public int Value { get; set; }

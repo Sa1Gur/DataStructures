@@ -24,12 +24,12 @@ public class UnionFind
         
         if (_rank[rootX] >= _rank[rootY])
         {
-            _root[rootY] = _rootX;
+            _root[rootY] = rootX;
             _rank[rootX] += _rank[rootY];
         }
         else
         {
-            _root[rootX] = _rootY;
+            _root[rootX] = rootY;
             _rank[rootY] += _rank[rootX];
         }
     }

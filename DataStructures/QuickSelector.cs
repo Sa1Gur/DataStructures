@@ -1,14 +1,13 @@
 public class QuickSelector
 {
+    private Random _randomGenerator = new ();
     public int FindKthLargest(int[] nums, int k) => QuickSelect(nums, 0, nums.Length - 1, nums.Length - k);
     
     private int QuickSelect(int[] nums, int left, int right, int k)
     {
         if (left == right) return nums[left];
         
-        int pIndex = new Random().Next(left, right + 1);
-        
-        pIndex = Partition(nums, left, right, pIndex);
+        int pIndex = Partition(nums, left, right, _randomGenerator.Next(left, right + 1);
         return (pIndex - k) switch
         {
             0 => nums[k],

@@ -7,7 +7,7 @@ public class QuickSelector
     {
         if (left == right) return nums[left];
         
-        int pIndex = Partition(nums, left, right, _randomGenerator.Next(left, right + 1);
+        int pIndex = Partition(nums, left, right, _randomGenerator.Next(left, right + 1));
         return (pIndex - k) switch
         {
             0 => nums[k],
@@ -15,6 +15,7 @@ public class QuickSelector
             > 0 => QuickSelect(nums, left, pIndex - 1, k)
         };
     }
+
     private int Partition(int[] nums, int left, int right, int pIndex)
     {
         int pivot = nums[pIndex];
@@ -32,5 +33,6 @@ public class QuickSelector
         
         return pIndex - 1;
     }
+
     private void Swap(int[] nums, int x, int y) => (nums[x], nums[y]) = (nums[y], nums[x]);
 }

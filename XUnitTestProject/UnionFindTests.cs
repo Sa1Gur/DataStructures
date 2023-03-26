@@ -29,7 +29,7 @@ public class UnionFindTests
             result[rootI].Add(i);
         }
 
-        Assert.Equal(result.Count, 2);
-        Assert.Equal(result[0], 3);
+        Assert.Equal(2, result.Count);
+        Assert.Equal(3, result[0].Count);
     }
 }

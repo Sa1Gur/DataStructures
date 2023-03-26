@@ -1,5 +1,7 @@
 using DataStructures; 
-using System; 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit; 
 
 namespace XUnitTestProject; 
@@ -26,5 +28,8 @@ public class UnionFindTests
             
             result[rootI].Add(i);
         }
+
+        Assert.Equal(result.Count, 2);
+        Assert.Equal(result[0], 3);
     }
 }

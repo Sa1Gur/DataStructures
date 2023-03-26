@@ -22,15 +22,13 @@ public class UnionFind
 
         if (rootX == rootY) return;
         
-        if (_rank[rootX] >= _rank[rootY])
-        {
-            _root[rootY] = rootX;
-            _rank[rootX] += _rank[rootY];
-        }
-        else
-        {
-            _root[rootX] = rootY;
-            _rank[rootY] += _rank[rootX];
-        }
+        if (_rank[rootX] >= _rank[rootY]) IncorporateSecondInFirst(rootX, rootY);
+        else IncorporateSecondInFirst(rootY, rootX);
+    }
+
+    private void IncorporateSecondInFirst(int first, int second)
+    {
+        _root[second] = first;
+        _rank[first] += _rank[second];
     }
 }

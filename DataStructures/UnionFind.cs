@@ -6,11 +6,9 @@ public class UnionFind
     public UnionFind(int size)
     {
         if (size <= 0) throw new ArgumentNullException(nameof(size));
-        _root = new int[size];
-        _rank = new int[size];
-
-        for (int i = 0; i < size; i++)
-            (_root[i], _rank[i]) = (i, 1);
+        
+        _root = Enumerable.Range(0, size).ToArray();
+        _rank = Enumerable.Repeat(1, size).ToArray();
     }
 
     public int Find(int x) => 

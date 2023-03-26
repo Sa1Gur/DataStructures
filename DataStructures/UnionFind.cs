@@ -20,8 +20,9 @@ public class UnionFind
 
         if (rootX == rootY) return;
         
-        if (_rank[rootX] >= _rank[rootY]) IncorporateSecondInFirst(rootX, rootY);
-        else IncorporateSecondInFirst(rootY, rootX);
+        if (_rank[rootX] < _rank[rootY]) (rootX, rootY) = (rootY, rootX);
+                                         
+        IncorporateSecondInFirst(rootX, rootY);
     }
 
     private void IncorporateSecondInFirst(int first, int second)

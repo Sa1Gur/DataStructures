@@ -1,7 +1,7 @@
 public class UnionFind
 {
     private int[] _root;    
-    private HashSet<(int, int)> _topLevelRoots;
+    private HashSet<int> _topLevelRoots;
     private int[] _rank;
 
     public UnionFind(int size)
@@ -17,7 +17,7 @@ public class UnionFind
     
     public int GetRank(int x) => _rank[Find(x)];
     
-    public HashSet<(int, int)> GetTopLevelRoots() => new (_topLevelRoots);
+    public HashSet<int> GetTopLevelRoots() => new (_topLevelRoots);
 
     public void Union(int x, int y)
     {

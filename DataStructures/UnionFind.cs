@@ -1,6 +1,7 @@
 public class UnionFind
 {
-    private int[] _root;
+    private int[] _root;    
+    private HashSet<(int, int)> _topLevelRoots;
     private int[] _rank;
 
     public UnionFind(int size)
@@ -8,11 +9,15 @@ public class UnionFind
         if (size <= 0) throw new ArgumentNullException(nameof(size));
         
         _root = Enumerable.Range(0, size).ToArray();
+        _topLevelRoots = Enumerable.Range(0, size).ToHashSet();
         _rank = Enumerable.Repeat(1, size).ToArray();
     }
 
-    public int Find(int x) => 
-    (x == _root[x]) ? x : _root[x] = Find(_root[x]);
+    public int Find(int x) => (x == _root[x]) ? x : _root[x] = Find(_root[x]);
+    
+    public int GetRank(int x) => _rank[Find(x)];
+    
+    public HashSet<(int, int)> GetTopLevelRoots() => new (_topLevelRoots);
 
     public void Union(int x, int y)
     {
@@ -28,6 +33,7 @@ public class UnionFind
     private void IncorporateSecondInFirst(int first, int second)
     {
         _root[second] = first;
-        _rank[first] += _rank[second];
+        _topLevelRoots.Remove(second);
+        _rank[first] += _rank[second];        
     }
 }

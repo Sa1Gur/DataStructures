@@ -9,7 +9,7 @@ public class UnionFind
         if (size <= 0) throw new ArgumentNullException(nameof(size));
         
         _root = Enumerable.Range(0, size).ToArray();
-        _topLevelRoots = Enumerable.Range(0, size).ToHashSet();
+        _topLevelRoots = _root.ToHashSet();
         _rank = Enumerable.Repeat(1, size).ToArray();
     }
 

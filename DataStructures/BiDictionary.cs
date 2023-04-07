@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 
 namespace DataStructures
 {
@@ -14,15 +12,13 @@ namespace DataStructures
 
         public void Add(TFirst first, TSecond second)
         {
-            IList<TFirst> firsts;
-            IList<TSecond> seconds;
-            if (!_firstToSecond.TryGetValue(first, out seconds))
+            if (!_firstToSecond.TryGetValue(first, out IList<TSecond> seconds))
             {
                 seconds = new List<TSecond>();
                 _firstToSecond[first] = seconds;
             }
 
-            if (!_secondToFirst.TryGetValue(second, out firsts))
+            if (!_secondToFirst.TryGetValue(second, out IList<TFirst> firsts))
             {
                 firsts = new List<TFirst>();
                 _secondToFirst[second] = firsts;

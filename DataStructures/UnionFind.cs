@@ -1,8 +1,10 @@
+namespace DataStructures;
+
 public class UnionFind
 {
-    private int[] _root;    
-    private HashSet<int> _topLevelRoots;
-    private int[] _rank;
+    private readonly int[] _root;    
+    private readonly HashSet<int> _topLevelRoots;
+    private readonly int[] _rank;
 
     public UnionFind(int size)
     {

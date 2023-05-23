@@ -7,7 +7,7 @@ public class QuickSelector
     {
         if (left == right) return nums[left];
         
-        int pIndex = Partition(nums, left, right, _randomGenerator.Next(left, right + 1));
+        int pIndex = PartitionByLomuto(nums, left, right, _randomGenerator.Next(left, right + 1));
         return (pIndex - k) switch
         {
             0 => nums[k],
@@ -16,7 +16,7 @@ public class QuickSelector
         };
     }
 
-    private int Partition(int[] nums, int left, int right, int pIndex)
+    private int PartitionByLomuto(int[] nums, int left, int right, int pIndex)
     {
         int pivot = nums[pIndex];
         Swap(nums, pIndex, right);
@@ -25,10 +25,9 @@ public class QuickSelector
         
         for (int i = left; i <= right; i++)
         {
-            if (nums[i] <= pivot)
-            {
-                Swap(nums, i, pIndex++);
-            }
+            if (nums[i] > pivot) continue;
+            
+            Swap(nums, i, pIndex++);
         }
         
         return pIndex - 1;

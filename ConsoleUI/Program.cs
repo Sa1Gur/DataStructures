@@ -1,8 +1,6 @@
 ﻿using DataStructures;
 using System;
 
-namespace ConsoleUI;
-
 Console.WriteLine("Hello World!");
 
 var heap = new Heap<int>((x, y) => x < y);

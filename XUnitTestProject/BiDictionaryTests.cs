@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using DataStructures;
-using Xunit;
+using Xunit.v3;
 
 //https://stackoverflow.com/questions/255341/getting-multiple-keys-of-specified-value-of-a-generic-dictionary
 //https://stackoverflow.com/questions/268321/bidirectional-1-to-1-dictionary-in-c-sharp
